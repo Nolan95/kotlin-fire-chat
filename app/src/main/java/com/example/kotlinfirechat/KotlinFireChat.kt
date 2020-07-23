@@ -1,10 +1,8 @@
 package com.example.kotlinfirechat
 
 import android.app.Application
-import com.example.kotlinfirechat.di.firebaseModule
-import com.example.kotlinfirechat.di.repositoryModule
-import com.example.kotlinfirechat.di.useCasesModule
-import com.example.kotlinfirechat.di.viewModelModule
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,14 +14,16 @@ import timber.log.Timber.DebugTree
 /**
  * Created by Sadate Tchamouza on 3/27/20.
  */
-
+@ExperimentalCoroutinesApi
+@FlowPreview
 class KotlinFireChat : Application() {
+
     override fun onCreate() {
         super.onCreate()
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@KotlinFireChat)
-            modules(listOf(repositoryModule, viewModelModule, useCasesModule, firebaseModule))
+            modules(appDiModule)
         }
 
         if (BuildConfig.DEBUG) {

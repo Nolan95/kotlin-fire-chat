@@ -10,8 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".KotlinFireChat">
-        <activity android:name=".views.MainActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+        <activity
+            android:name=".home.MainActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar" />
+
+        <activity
+            android:name=".home.SplashScreenActivity"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

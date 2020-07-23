@@ -1,3 +1,6 @@
+include ':presentation'
+include ':remote'
+include ':datalayer'
 include ':app'
 rootProject.name='KotlinFireChat'
 include ':domain'
