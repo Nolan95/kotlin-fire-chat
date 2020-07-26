@@ -1,6 +1,7 @@
 package com.example.domain
 
 import com.example.domain.usecases.SignInUseCase
+import com.example.domain.usecases.SignUpUseCase
 import org.koin.dsl.module
 
 /**
@@ -9,4 +10,5 @@ import org.koin.dsl.module
 
 val domainModule = module {
     factory { SignInUseCase() }
+    factory { SignUpUseCase() }
 }

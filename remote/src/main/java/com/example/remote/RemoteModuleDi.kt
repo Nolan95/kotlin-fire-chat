@@ -1,7 +1,9 @@
 package com.example.remote
 
 import com.example.datalayer.signin.SignInDataStore
+import com.example.datalayer.signup.SignUpDataStore
 import com.example.remote.signin.SignInDataStoreImpl
+import com.example.remote.signup.SignUpDataStoreImpl
 import com.google.firebase.auth.FirebaseAuth
 import org.koin.dsl.module
 
@@ -12,4 +14,5 @@ import org.koin.dsl.module
 val remoteModule = module {
     single { FirebaseAuth.getInstance() }
     factory<SignInDataStore> { SignInDataStoreImpl(get(), get()) }
+    factory<SignUpDataStore> { SignUpDataStoreImpl(get(), get()) }
 }

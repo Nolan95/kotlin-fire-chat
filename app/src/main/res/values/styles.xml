@@ -13,4 +13,8 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="TextViewAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/custom_app_font</item>
+    </style>
+
 </resources>

@@ -17,7 +17,7 @@
         android:id="@+id/homeFragment"
         android:name="com.example.kotlinfirechat.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home"></fragment>
+        tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="com.example.kotlinfirechat.home.WelcomeFragment"
@@ -26,5 +26,13 @@
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.kotlinfirechat.signup.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>
