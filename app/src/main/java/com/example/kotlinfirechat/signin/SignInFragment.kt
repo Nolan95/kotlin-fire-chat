@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.observe
+import androidx.navigation.fragment.findNavController
 import com.example.kotlinfirechat.R
 import com.example.kotlinfirechat.databinding.FragmentSigninBinding
 import com.example.presentation.base.BaseView
@@ -36,20 +37,23 @@ class SignInFragment : Fragment(), BaseView<SignInState, SignInIntent> {
 
     private lateinit var signInViewModel: SignInViewModel
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        signInViewModel = getSharedViewModel()
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(
-            inflater,
-            R.layout.fragment_signin, container, false
-        )
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_signin, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        activity?.actionBar?.setDisplayHomeAsUpEnabled(true)
         bindViewModel()
     }
 
@@ -59,11 +63,11 @@ class SignInFragment : Fragment(), BaseView<SignInState, SignInIntent> {
             is SignInState.SignInProgressState -> binding.spinKit.visibility = View.VISIBLE
             is SignInState.SignInSuccess -> {
                 binding.spinKit.visibility = View.GONE
-                Toast.makeText(context, "Hello ${state.user.fullName}", Toast.LENGTH_LONG).show()
+                findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
             }
             is SignInState.SignInError -> {
                 binding.spinKit.visibility = View.GONE
-                Toast.makeText(context, "${state.exception}", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "${state.exception.message}", Toast.LENGTH_LONG).show()
             }
         }
     }

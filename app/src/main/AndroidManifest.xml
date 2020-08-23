@@ -3,17 +3,15 @@
     package="com.example.kotlinfirechat">
 
     <application
+        android:name=".KotlinFireChat"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name=".KotlinFireChat">
-        <activity
-            android:name=".home.MainActivity"
-            android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar" />
-
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".home.HomeActivity" />
+        <activity android:name=".home.MainActivity" />
         <activity
             android:name=".home.SplashScreenActivity"
             android:theme="@style/SplashScreen">

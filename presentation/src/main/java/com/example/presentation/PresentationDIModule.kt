@@ -4,6 +4,9 @@ import com.example.presentation.base.Store
 import com.example.presentation.signin.SignInReducer
 import com.example.presentation.signin.SignInState
 import com.example.presentation.signin.SignInViewModel
+import com.example.presentation.signup.SignUpReducer
+import com.example.presentation.signup.SignUpState
+import com.example.presentation.signup.SignUpViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -19,6 +22,15 @@ import org.koin.dsl.module
 val presentationModule = module {
 
     viewModel {
+        SignUpViewModel(
+            Store(
+                get<SignUpReducer>(named(SignUpReducer.name)),
+                SignUpState.InitialState
+            ), get()
+        )
+    }
+
+    viewModel {
         SignInViewModel(
             Store(
                 get<SignInReducer>(named(SignInReducer.name)),
@@ -27,4 +39,5 @@ val presentationModule = module {
         )
     }
     factory(named(SignInReducer.name)) { SignInReducer() }
+    factory(named(SignUpReducer.name)) { SignUpReducer() }
 }

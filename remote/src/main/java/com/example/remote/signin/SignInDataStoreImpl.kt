@@ -4,6 +4,7 @@ import com.example.datalayer.FirebaseUserMapper
 import com.example.datalayer.UserPayload
 import com.example.datalayer.signin.SignInDataStore
 import com.example.domain.utils.Result
+import com.example.preferences.SessionModelImpl
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.tasks.await
 
@@ -15,20 +16,15 @@ class SignInDataStoreImpl(
     private val auth: FirebaseAuth,
     private val firebaseUserMapper: FirebaseUserMapper
 ) : SignInDataStore {
-    /*  override suspend fun createUser(userPayload: UserPayload): Result {
-          return try {
-              val response = auth.createUserWithEmailAndPassword(userPayload.email, userPayload.password).await()
-              Result.Success(response.user!!)
-          } catch (e: Exception) {
-              Result.Error(e)
-          }
-      }*/
 
     override suspend fun signIn(userPayload: UserPayload): Result {
         return try {
             val response =
                 auth.signInWithEmailAndPassword(userPayload.email, userPayload.password).await()
-            Result.Success(firebaseUserMapper.toUser(response.user))
+            val user = firebaseUserMapper.toUser(response.user)
+            SessionModelImpl.saveUserData(user)
+            SessionModelImpl.loginStatus = true
+            Result.Success(user)
         } catch (e: Exception) {
             Result.Error(e)
         }
