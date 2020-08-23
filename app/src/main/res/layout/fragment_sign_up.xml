@@ -13,8 +13,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:gravity="center"
-            android:orientation="vertical"
             tools:context=".signup.SignUpFragment">
 
             <ImageView
@@ -35,13 +33,13 @@
                 android:layout_marginTop="@dimen/dimen_40"
                 android:gravity="center"
                 android:text="@string/create_your_account_today_and_meet_lot_of_people_around_you"
-                android:textAppearance="@style/TextViewAppearance"
+                android:textAppearance="@style/QuickSandMedium"
                 android:textSize="@dimen/size_30"
                 app:layout_constraintTop_toBottomOf="@+id/app_logo" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/password_input"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_60"
@@ -55,14 +53,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email"
-                    android:textAppearance="@style/TextViewAppearance"
-                    android:textSize="@dimen/size_24" />
+                    android:textAppearance="@style/QuickSandRegular"
+                    android:textSize="@dimen/size_16" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/name_text_input"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dimen_8"
@@ -76,20 +74,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password"
-                    android:textAppearance="@style/TextViewAppearance"
-                    android:textSize="@dimen/size_24" />
+                    android:textAppearance="@style/QuickSandRegular"
+                    android:textSize="@dimen/size_16" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.button.MaterialButton
+            <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
+                android:paddingBottom="10dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_8"
-                android:paddingTop="@dimen/dimen_8"
-                android:paddingBottom="@dimen/dimen_8"
                 android:text="@string/create_account"
-                android:textAppearance="@style/TextViewAppearance"
-                android:textSize="@dimen/size_24"
+                android:textAppearance="@style/QuickSandMedium"
+                android:textSize="@dimen/size_19"
                 app:backgroundTint="@color/colorLogo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -120,6 +116,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textAppearance="@style/QuickSandRegular"
                     android:text="@string/already_member"
                     android:textSize="@dimen/size_19" />
 
@@ -129,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/dimen_16"
                     android:layout_marginLeft="@dimen/dimen_16"
+                    android:textAppearance="@style/QuickSandMedium"
                     android:text="@string/sign_in"
                     android:textColor="@color/colorLogo"
                     android:textSize="@dimen/size_19" />

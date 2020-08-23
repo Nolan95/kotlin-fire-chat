@@ -1,6 +1,7 @@
 package com.example.kotlinfirechat
 
 import android.app.Application
+import com.example.preferences.SessionModelImpl
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidContext
@@ -29,5 +30,7 @@ class KotlinFireChat : Application() {
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
         }
+
+        SessionModelImpl.init(this)
     }
 }

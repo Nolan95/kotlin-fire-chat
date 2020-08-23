@@ -2,6 +2,7 @@ package com.example.kotlinfirechat
 
 import com.example.datalayer.dataModule
 import com.example.domain.domainModule
+import com.example.preferences.prefDiModule
 import com.example.presentation.presentationModule
 import com.example.remote.remoteModule
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -13,4 +14,4 @@ import kotlinx.coroutines.FlowPreview
 
 @FlowPreview
 @ExperimentalCoroutinesApi
-val appDiModule = presentationModule + dataModule + remoteModule + domainModule
+val appDiModule = presentationModule + dataModule + remoteModule + domainModule + prefDiModule

@@ -4,20 +4,21 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.kotlinfirechat.R
+import com.example.kotlinfirechat.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(activityMainBinding.root)
     }
 
     override fun onSupportNavigateUp() = findNavController(R.id.nav_fragment).navigateUp()
 
     override fun onBackPressed() {
-        super.onBackPressed()
         when (supportFragmentManager.primaryNavigationFragment?.childFragmentManager?.fragments?.first()) {
-            is HomeFragment -> finish()
+            is MessageFragment -> finish()
             else -> super.onBackPressed()
         }
     }

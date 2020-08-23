@@ -27,6 +27,7 @@ android {
 dependencies {
     api project(':domain')
     implementation project(':datalayer')
+    implementation project(':preferences')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.0'

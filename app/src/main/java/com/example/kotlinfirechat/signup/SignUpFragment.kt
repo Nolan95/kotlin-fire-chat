@@ -62,10 +62,6 @@ class SignUpFragment : Fragment(), BaseView<SignUpState, SignUpIntent> {
         intents().onEach(mViewModel::processIntents).launchIn(lifecycleScope)
     }
 
-    companion object {
-        fun newInstance() = SignUpFragment()
-    }
-
     override fun render(state: SignUpState) {
         when (state) {
             is SignUpState.SignUpProgressState -> binding.spinKit.visibility = View.VISIBLE
